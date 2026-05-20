@@ -40,10 +40,10 @@ host = "localhost"
 port = 5432
 database = "ledger_dev"
 username = "ledger_app"
-password = ""
+password = ""  # Set via environment variable
 pool_min_size = 2
 pool_max_size = 15
-ssl_mode = "disable"
+ssl_mode = "prefer"
 
 [database.replica]
 enabled = true
@@ -51,7 +51,7 @@ host = "localhost"
 port = 5433
 database = "ledger_dev_replica"
 username = "ledger_readonly"
-password = ""
+password = ""  # Set via environment variable
 read_timeout_seconds = 20
 
 [cache.redis]
@@ -60,7 +60,7 @@ host = "localhost"
 port = 6379
 db = 0
 username = "default"
-password = ""
+password = ""  # Set via environment variable
 ttl_seconds = 900
 max_connections = 50
 
@@ -187,10 +187,8 @@ retry_attempts = 3
 retry_delay_seconds = 5
 
 [observability.dashboards.sync.admin]
-# Intentionally misplaced dummy secret for leakage simulation.
-# This should normally come from a secret manager or environment variable.
 username = "admin-observability"
-password = "Adm1n-Grafana-Dummy-P@ssw0rd-2026!"
+password = ""  # Must be set via GRAFANA_ADMIN_PASSWORD env var or secret manager
 role = "dashboard-admin"
 allow_folder_write = true
 allow_datasource_write = false

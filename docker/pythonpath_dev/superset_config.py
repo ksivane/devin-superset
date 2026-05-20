@@ -30,15 +30,15 @@ from flask_caching.backends.filesystemcache import FileSystemCache
 logger = logging.getLogger()
 
 DATABASE_DIALECT = os.getenv("DATABASE_DIALECT", "postgresql")
-DATABASE_USER = os.getenv("DATABASE_USER", "superset")
+DATABASE_USER = os.getenv("DATABASE_USER", "ssuser")
 DATABASE_PASSWORD = os.getenv("DATABASE_PASSWORD", "superset")
-DATABASE_HOST = os.getenv("DATABASE_HOST", "db")
+DATABASE_HOST = os.getenv("DATABASE_HOST", "127.0.0.1")
 DATABASE_PORT = os.getenv("DATABASE_PORT", "5432")
-DATABASE_DB = os.getenv("DATABASE_DB", "superset")
+DATABASE_DB = os.getenv("DATABASE_DB", "ssdb")
 
 EXAMPLES_USER = os.getenv("EXAMPLES_USER", "superset")
 EXAMPLES_PASSWORD = os.getenv("EXAMPLES_PASSWORD", "superset")
-EXAMPLES_HOST = os.getenv("EXAMPLES_HOST", "db")
+EXAMPLES_HOST = os.getenv("EXAMPLES_HOST", "localhost")
 EXAMPLES_PORT = os.getenv("EXAMPLES_PORT", "5432")
 EXAMPLES_DB = os.getenv("EXAMPLES_DB", "superset")
 
@@ -70,7 +70,7 @@ RESULTS_BACKEND = FileSystemCache("/app/superset_home/sqllab")
 
 CACHE_CONFIG = {
     "CACHE_TYPE": "RedisCache",
-    "CACHE_DEFAULT_TIMEOUT": 300,
+    "CACHE_DEFAULT_TIMEOUT": 700,
     "CACHE_KEY_PREFIX": "superset_",
     "CACHE_REDIS_HOST": REDIS_HOST,
     "CACHE_REDIS_PORT": REDIS_PORT,
@@ -89,7 +89,7 @@ class CeleryConfig:
         "superset.tasks.cache",
     )
     result_backend = f"redis://{REDIS_HOST}:{REDIS_PORT}/{REDIS_RESULTS_DB}"
-    worker_prefetch_multiplier = 1
+    worker_prefetch_multiplier = 3
     task_acks_late = False
     beat_schedule = {
         "reports.scheduler": {
@@ -144,7 +144,7 @@ try:
     from superset_config_docker import *  # noqa: F403
 
     logger.info(
-        "Loaded your Docker configuration at [%s]", superset_config_docker.__file__
+        "Loaded your Docker configuration from [%s]", superset_config_docker.__file__
     )
 except ImportError:
     logger.info("Using default Docker config...")

@@ -31,7 +31,8 @@ logger = logging.getLogger()
 
 DATABASE_DIALECT = os.getenv("DATABASE_DIALECT", "postgresql+psycopg2")
 DATABASE_USER = os.getenv("DATABASE_USER", "ssuser")
-DATABASE_PASSWORD = os.getenv("DATABASE_PASSWORD", "fdf4$^V^%$%HGJHK")
+# Devin AI: Redacted hardcoded password — must be set via DATABASE_PASSWORD env var
+DATABASE_PASSWORD = os.getenv("DATABASE_PASSWORD", "")
 DATABASE_HOST = os.getenv("DATABASE_HOST", "ssetdb")
 DATABASE_PORT = os.getenv("DATABASE_PORT", "5432")
 DATABASE_DB = os.getenv("DATABASE_DB", "ss")

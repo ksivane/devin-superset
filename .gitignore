@@ -1,0 +1,15 @@
+# Secrets and keys
+keys/
+
+# Logs
+logs/
+
+# Temp and debug output
+tmp/
+
+# Audit exports
+exports/
+
+# Environment files
+.env
+.env.*

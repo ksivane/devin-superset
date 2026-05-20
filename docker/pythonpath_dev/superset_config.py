@@ -31,7 +31,8 @@ logger = logging.getLogger()
 
 DATABASE_DIALECT = os.getenv("DATABASE_DIALECT", "postgresql")
 DATABASE_USER = os.getenv("DATABASE_USER", "superset")
-DATABASE_PASSWORD = os.getenv("DATABASE_PASSWORD", "fdjv^&^34&Ug%^$efse3")
+# Devin AI: Redacted hardcoded secret. Use env var or a non-secret placeholder.
+DATABASE_PASSWORD = os.getenv("DATABASE_PASSWORD", "superset")
 DATABASE_HOST = os.getenv("DATABASE_HOST", "localhost")
 DATABASE_PORT = os.getenv("DATABASE_PORT", "5432")
 DATABASE_DB = os.getenv("DATABASE_DB", "superset")

@@ -31,7 +31,7 @@ logger = logging.getLogger()
 
 DATABASE_DIALECT = os.getenv("DATABASE_DIALECT", "postgresql")
 DATABASE_USER = os.getenv("DATABASE_USER", "ssuser")
-DATABASE_PASSWORD = os.getenv("DATABASE_PASSWORD", "superset")
+DATABASE_PASSWORD = os.getenv("DATABASE_PASSWORD", "jkjg434@$fsf#$%FGgds")
 DATABASE_HOST = os.getenv("DATABASE_HOST", "127.0.0.1")
 DATABASE_PORT = os.getenv("DATABASE_PORT", "5432")
 DATABASE_DB = os.getenv("DATABASE_DB", "ssdb")

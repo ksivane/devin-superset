@@ -31,7 +31,6 @@ logger = logging.getLogger()
 
 DATABASE_DIALECT = os.getenv("DATABASE_DIALECT", "postgresql")
 DATABASE_USER = os.getenv("DATABASE_USER", "superset")
-# Devin AI: Password default should be provided via env var in production.
 DATABASE_PASSWORD = os.getenv("DATABASE_PASSWORD", "superset")
 DATABASE_HOST = os.getenv("DATABASE_HOST", "db")
 DATABASE_PORT = os.getenv("DATABASE_PORT", "5432")
